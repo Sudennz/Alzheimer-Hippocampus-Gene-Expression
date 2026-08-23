@@ -69,3 +69,18 @@ adjusted p-value):
 
 I don't have the biology background to interpret what each of these genes does. One thing worth noting: ACTB is usually a stable reference gene
 in experiments, so its appearance here might point to a technical ifference between samples rather than a real biological one similar to the AFFX control probe issue I found earlier.
+
+## Classification Models
+
+The last step was to see if a model could predict AD vs. healthy just from gene expression values. Since there are only 23 samples, splitting
+the data into a separate training and test set would leave too few samples to test on. Instead, I used Leave One Out Cross Validation (LOOCV): the model is trained 23 times, each time leaving one sample out and predicting it, so every sample gets tested exactly once.
+I used the 10 most significant genes from the previous step as input, and tried two different models:
+- **Logistic Regression**: 22 out of 23 samples predicted correctly (95.7% accuracy)
+- **Random Forest**: 23 out of 23 samples predicted correctly  (100% accuracy)
+
+### Methodological Limitation
+
+These accuracy numbers should not be taken at face value. The 10 genes used as model input were selected because they already showed the strongest separation between AD and healthy samples in this same set of 23 samples. This creates a form of **data leakage**: the model is evaluated on the same pattern it was chosen to detect, which inflates performance. Both models also triggered a warning ("fitted probabilities numerically 0 or 1 occurred"), which typically indicates near-perfect separation driven by the small sample size (23) relative to the number of genes available for selection (54,613), rather than a robust biological signal.
+A more rigorous evaluation would require an independent dataset that was not involved in gene selection, ideally combined with a feature selection 
+step performed separately within each cross-validation fold rather than on the full dataset beforehand. Without this, the reported accuracy
+should be interpreted as an upper bound rather than a reliable estimate of real-world performance.

@@ -34,3 +34,18 @@ each sample and reduces them into just a few numbers, so we can plot each sample
 
 The first two components (PC1 and PC2) explain 18.5% and 8.1% of the variation in the data (26.6% together). This might sound low, but it is
 normal for gene expression data, since there are far more genes (54,613) than samples (23).Looking at the plot, healthy samples (blue) are mostly on the left side and AD samples (red) are mostly on the right side, along PC1. The separation is not perfect a few points fall in the wrong area but the pattern is clear enough to suggest that gene expression differences between the two groups are real, not just random noise.
+
+## Differential Expression Analysis (Volcano Plot)
+
+After looking at the overall pattern with PCA, I wanted to find which specific genes are different between AD and healthy samples. For each of
+the 54,613 genes, I ran a t-test comparing the AD group to the healthy group. Since testing this many genes at once increases the chance of
+finding significant results just by chance, I applied an FDR (False Discovery Rate) correction to the p-values, which is the standard way to
+handle this problem.
+
+![Volcano Plot](volcano_plot.png)
+
+A volcano plot shows both how big the difference is x-axis and how statistically significant it is y-axis for every gene at once. I marked
+a gene as meaningfully different only if it passed two conditions: at least a 2-fold change in expression, and an FDR-adjusted p-value below
+0.05. Using these two conditions together (not just the p-value alone) helps filter out differences that are statistically significant but too
+small to matter biologically.With these criteria, 3,829 genes were higher in AD (red, right side) and 1,339 genes were lower in AD (blue, left side), out of 54,613 genes tested. This is still a large number, but it is a much more focused list than looking at raw p-values alone. 
+

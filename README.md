@@ -3,7 +3,7 @@ Self learning project analyzing gene expression differences between Alzheimer's 
 
 ## A Note on This Project
 
-I am a first year Statistics student at Hacettepe University. I did this project because I am interested in biostatistics, and I used an AI assistant (Claude) to help me while working on it.
+I am a first year Statistics student at Hacettepe University. I did this project because I am interested in biostatistics and wanted to learn some of it hands on.An AI assistant (Claude) guided me through each step of the project.
 *Full R code available in [`analysis.R`](analysis.R)*
 
 ## What This Project Does

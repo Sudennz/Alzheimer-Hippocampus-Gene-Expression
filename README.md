@@ -49,3 +49,23 @@ a gene as meaningfully different only if it passed two conditions: at least a 2-
 0.05. Using these two conditions together (not just the p-value alone) helps filter out differences that are statistically significant but too
 small to matter biologically.With these criteria, 3,829 genes were higher in AD (red, right side) and 1,339 genes were lower in AD (blue, left side), out of 54,613 genes tested. This is still a large number, but it is a much more focused list than looking at raw p-values alone. 
 
+## Top Genes
+
+Here are the 10 genes with the strongest statistical signal (lowest
+adjusted p-value):
+
+| Gene Symbol | Gene Name | log2 Fold Change | Adjusted p-value |
+|---|---|---|---|
+| HAPSTR1 | HUWE1 associated protein modifying stress responses | -2.27 | 2.15e-07 |
+| ERC1 | ELKS/RAB6-interacting/CAST family member 1 | 2.46 | 6.31e-07 |
+| ACTB | actin beta | -2.01 | 6.31e-07 |
+| KTN1 | kinectin 1 | 2.35 | 6.31e-07 |
+| YLPM1 | YLP motif containing 1 | 2.51 | 6.31e-07 |
+| TBL1XR1 | TBL1X/Y related 1 | 2.62 | 6.31e-07 |
+| ELAVL3 | ELAV like RNA binding protein 3 | 2.89 | 6.31e-07 |
+| (unnamed probe) | not found in annotation database | 2.72 | 6.31e-07 |
+| SUPT16H | SPT16 homolog, facilitates chromatin remodeling subunit | -1.33 | 7.05e-07 |
+| GPR155 | G protein-coupled receptor 155 | 2.84 | 7.05e-07 |
+
+I don't have the biology background to interpret what each of these genes does. One thing worth noting: ACTB is usually a stable reference gene
+in experiments, so its appearance here might point to a technical ifference between samples rather than a real biological one similar to the AFFX control probe issue I found earlier.

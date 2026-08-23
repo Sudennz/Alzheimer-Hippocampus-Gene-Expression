@@ -84,3 +84,16 @@ These accuracy numbers should not be taken at face value. The 10 genes used as m
 A more rigorous evaluation would require an independent dataset that was not involved in gene selection, ideally combined with a feature selection 
 step performed separately within each cross-validation fold rather than on the full dataset beforehand. Without this, the reported accuracy
 should be interpreted as an upper bound rather than a reliable estimate of real-world performance.
+
+## Overall Limitations
+
+A few things are important to keep in mind when reading this project:
+- **Small sample size**: only 23 hippocampus samples (10 AD, 13 healthy) were available after narrowing down to a single brain region. This  limits how much confidence we can have in any single result.
+- **High dimensionality**: with 54,613 genes and only 23 samples, some patterns that look meaningful could still be due to chance.
+- **No independent validation**: all analysis steps (gene selection,model training, and testing) were done on the same 23 samples. A real test would require a separate dataset.
+- **Limited biological interpretation**: I do not yet have the background to fully interpret what the identified genes mean biologically. The statistical part of this project is something I can explain and defend the biological meaning behind it is something I would need to learn from people with that expertise.
+
+## Conclusion
+
+This project let me apply, in practice, several methods I had only read about before: PCA, differential expression analysis, and basic classification models. The results suggest there are real gene expression differences between AD and healthy hippocampus tissue, but the small sample size means these findings should be seen as a starting point, not a final answer.
+More than the specific results, what I take away from this project is a better understanding of how easy it is to get a misleadingly good result (like the 100% accuracy I found) if you are not careful about how the analysis is structured. I would like to continue learning about these methods, ideally by contributing to research that uses them on a larger scale.
